@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="AnimSpriteComponent.cpp" />
+    <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="RectComponent.cpp" />
+    <ClCompile Include="UIScreen.cpp" />
+    <ClCompile Include="UIPause.cpp" />
+    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIQuit.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="MeshComponent.cpp" />
+    <ClCompile Include="TreeMeshComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="AnimSpriteComponent.h" />
+    <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="RectComponent.h" />
+    <ClInclude Include="UIScreen.h" />
+    <ClInclude Include="UIPause.h" />
+    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UIQuit.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="MeshComponent.h" />
+    <ClInclude Include="TreeMeshComponent.h" />
+  </ItemGroup>
+</Project>

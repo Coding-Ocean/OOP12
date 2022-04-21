@@ -46,8 +46,8 @@ void SpriteComponent::Update()
 void SpriteComponent::Draw()
 {
 	VECTOR p = mOwner->GetPosition();
-	float a = mOwner->GetRotation();
-	float s = mOwner->GetScale();
+	float a = mOwner->GetRotationZ();
+	float s = mOwner->GetScale().x;
 	rectMode(mRectMode);
 	imageColor(mColor);
 	image(mImg, p.x, p.y, a, s);

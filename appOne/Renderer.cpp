@@ -25,7 +25,7 @@ bool Renderer::Initialize()
     mView.camera(camPos, lookat, up);
     mProj.pers(3.14f / 4, width / height, 1, 20);
     mLightPos.set(0, 1, 1);
-    mAmbient = 0.0f;
+    mAmbient = 0.8f;
     mDiffuse.set(1, 1, 1, 1);
 
     mContainer = new CONTAINER("Assets\\Assets.txt");

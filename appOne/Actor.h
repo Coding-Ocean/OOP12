@@ -24,10 +24,15 @@ public:
 
 	const VECTOR& GetPosition() const { return mPosition; }
 	void SetPosition(const VECTOR& pos) { mPosition = pos; }
-	float GetRotation() const { return mRotation; }
-	void SetRotation(float rotation) { mRotation = rotation; }
-	float GetScale() const { return mScale; }
-	void SetScale(float scale) { mScale = scale; }
+	float GetRotationY() const { return mRotationY; }
+	float GetRotationX() const { return mRotationX; }
+	float GetRotationZ() const { return mRotationZ; }
+	void SetRotationY(float rotationY) { mRotationY = rotationY; }
+	void SetRotationX(float rotationX) { mRotationX = rotationX; }
+	void SetRotationZ(float rotationZ) { mRotationZ = rotationZ; }
+	const VECTOR& GetScale() const { return mScale; }
+	void SetScale(const VECTOR& scale) { mScale = scale; }
+	void SetScale(float scale) { mScale = VECTOR(scale,scale,scale); }
 
 	class Game* GetGame() { return mGame; }
 
@@ -38,8 +43,10 @@ private:
 	State mState;
 	//トランスフォーム
 	VECTOR mPosition;
-	float mRotation;
-	float mScale;
+	float mRotationY;
+	float mRotationX;
+	float mRotationZ;
+	VECTOR mScale;
 	//Gameクラスのpublicメンバにアクセスするポインタ
 	class Game* mGame;
 	//component配列

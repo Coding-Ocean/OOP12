@@ -42,6 +42,7 @@ void UIPause::ProcessInput()
 void UIPause::Draw()
 {
 	fill(0, 0, 0, 128);
+	rectMode(CENTER);
 	rect(width / 2, height / 2, width, height);
 
 	UIScreen::Draw();

@@ -5,8 +5,10 @@
 Actor::Actor(Game* game)
 	: mGame(game)
 	, mState(EActive)
-	, mRotation(0.0f)
-	, mScale(1.0f)
+	, mRotationY(0.0f)
+	, mRotationX(0.0f)
+	, mRotationZ(0.0f)
+	, mScale(1.0f,1.0f,1.0f)
 {
 	mGame->AddActor(this);
 }

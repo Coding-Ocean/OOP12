@@ -10,23 +10,40 @@
 #include "Actor.h"
 #include "SpriteComponent.h"
 #include "TreeMeshComponent.h"
+#include "BatchMeshComponent.h"
 
 bool Game::Initialize()
 {
-    window(1024, 768, full);
+    window(1920, 1080, full);
+    //画像出力系はこのクラスにまとめる
     mRenderer = new Renderer(this);
-
+    //2D Actor
     Actor* a = new Actor(this);
-    a->SetPosition(VECTOR(0,0));
+    a->SetPosition(VECTOR(0, 0));
+    a->SetRotationZ(-0.7f);
+    a->SetScale(2.0f);
     auto sc = new SpriteComponent(a);
     sc->SetImage(loadImage("assets\\enemy01.png"));
     sc->SetRectMode(CORNER);
-
+    //3D Actor1
     a = new Actor(this);
     a->SetPosition(VECTOR(0, 0, 0));
+    a->SetRotationX(-1.57f);
+    a->SetRotationZ(1.57f);
+    a->SetScale(1.0f);
+    auto bc = new BatchMeshComponent(a);
+    bc->SetBatch("elephant");
+    //3D Actor2
+    a = new Actor(this);
+    a->SetPosition(VECTOR(0, 0, 0));
+    a->SetScale(2.0f);
     auto tc = new TreeMeshComponent(a);
     tc->SetTree("explorer");
-
+    tc->SetAnim("explorer_neutral");
+    tc->SetAnim("explorer_run");
+    enum { eNeutral, eRun };
+    tc->SetAnimId(eNeutral);
+    //フレーム間隔時間初期設定
     initDeltaTime();
     return true;
 }
@@ -81,7 +98,6 @@ void Game::RemoveActor(Actor* actor)
         mActors.pop_back();
     }
 }
-
 
 void Game::PushUI(UIScreen* uiScreen)
 {
@@ -184,17 +200,3 @@ void Game::GenerateOutput()
 }
 
 //このゲームに固有のロジック
-void Game::AddUfo(Ufo* ufo)
-{
-    mUfos.emplace_back(ufo);
-}
-
-void Game::RemoveUfo(Ufo* ufo)
-{
-    auto iter = std::find(mUfos.begin(), mUfos.end(), ufo);
-    if (iter != mUfos.end())
-    {
-        std::iter_swap(iter, mUfos.end() - 1);
-        mUfos.pop_back();
-    }
-}

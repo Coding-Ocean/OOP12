@@ -161,9 +161,11 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
-    <ClCompile Include="RectComponent.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerStates.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="StateComponent.cpp" />
     <ClCompile Include="TreeMeshComponent.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIPause.cpp" />
@@ -184,9 +186,12 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="MoveComponent.h" />
-    <ClInclude Include="RectComponent.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerStates.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateComponent.h" />
     <ClInclude Include="TreeMeshComponent.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIPause.h" />

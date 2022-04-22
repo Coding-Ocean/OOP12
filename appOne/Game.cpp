@@ -6,11 +6,10 @@
 #include "Renderer.h"
 #include "UIPause.h"
 
-
 #include "Actor.h"
 #include "SpriteComponent.h"
-#include "TreeMeshComponent.h"
 #include "BatchMeshComponent.h"
+#include "Player.h"
 
 bool Game::Initialize()
 {
@@ -27,22 +26,12 @@ bool Game::Initialize()
     sc->SetRectMode(CORNER);
     //3D Actor1
     a = new Actor(this);
-    a->SetPosition(VECTOR(0, 0, 0));
-    a->SetRotationX(-1.57f);
-    a->SetRotationZ(1.57f);
-    a->SetScale(1.0f);
+    a->SetPosition(VECTOR(-1.0f, 0, 0));
+    a->SetScale(3.0f);
     auto bc = new BatchMeshComponent(a);
     bc->SetBatch("elephant");
-    //3D Actor2
-    a = new Actor(this);
-    a->SetPosition(VECTOR(0, 0, 0));
-    a->SetScale(2.0f);
-    auto tc = new TreeMeshComponent(a);
-    tc->SetTree("explorer");
-    tc->SetAnim("explorer_neutral");
-    tc->SetAnim("explorer_run");
-    enum { eNeutral, eRun };
-    tc->SetAnimId(eNeutral);
+    //Player
+    new Player(this);
     //ƒtƒŒ[ƒ€ŠÔŠuŠÔ‰Šúİ’è
     initDeltaTime();
     return true;

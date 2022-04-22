@@ -39,5 +39,7 @@ private:
 	std::vector<class Actor*> mPendingActors;
 
 	class Renderer* mRenderer;
+
+	//このゲームに固有のロジック
 };
 

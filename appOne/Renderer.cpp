@@ -21,7 +21,7 @@ bool Renderer::Initialize()
 {
     mShader = new LAMBERT;
     setRasterizerCullBack();
-    VECTOR camPos(0, 0.0f, 6.0f), lookat(0, 1.0f, 0), up(0, 1, 0);
+    VECTOR camPos(0, 1.0f, 8.0f), lookat(0, 0.0f, 0), up(0, 1, 0);
     mView.camera(camPos, lookat, up);
     mProj.pers(3.14f / 4, width / height, 1, 20);
     mLightPos.set(0, 1, 1);

@@ -20,6 +20,18 @@
     <Filter Include="UI\Base">
       <UniqueIdentifier>{d732b3cf-9653-45ef-abce-4914aa996359}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{c6d226a3-ea14-4701-80b6-f48cb6ad9710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Base">
+      <UniqueIdentifier>{4ef23221-887e-477b-ba0d-792640f8216e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor\Player">
+      <UniqueIdentifier>{afa7e61c-6b88-49ab-b8f2-bdc6d6483c00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\State">
+      <UniqueIdentifier>{315b052e-9e9e-4e89-91cc-77fd7faad023}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -34,7 +46,6 @@
   <ItemGroup>
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="MeshComponent.cpp">
       <Filter>Component\Graphic</Filter>
@@ -54,9 +65,6 @@
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Component</Filter>
     </ClCompile>
-    <ClCompile Include="RectComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="UIButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
@@ -69,11 +77,24 @@
     <ClCompile Include="UIScreen.cpp">
       <Filter>UI\Base</Filter>
     </ClCompile>
-    <ClCompile Include="BatchMeshComponent.cpp" />
+    <ClCompile Include="Actor.cpp">
+      <Filter>Actor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="BatchMeshComponent.cpp">
+      <Filter>Component\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Actor\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="StateComponent.cpp">
+      <Filter>Component\State</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStates.cpp">
+      <Filter>Actor\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Actor.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MeshComponent.h">
       <Filter>Component\Graphic</Filter>
@@ -93,9 +114,6 @@
     <ClInclude Include="MoveComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="RectComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="UIButton.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -108,6 +126,23 @@
     <ClInclude Include="UIScreen.h">
       <Filter>UI\Base</Filter>
     </ClInclude>
-    <ClInclude Include="BatchMeshComponent.h" />
+    <ClInclude Include="Actor.h">
+      <Filter>Actor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BatchMeshComponent.h">
+      <Filter>Component\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Actor\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateComponent.h">
+      <Filter>Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStates.h">
+      <Filter>Actor\Player</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

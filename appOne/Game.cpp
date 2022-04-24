@@ -6,7 +6,6 @@
 #include "Renderer.h"
 #include "UIPause.h"
 
-
 #include "Actor.h"
 #include "SpriteComponent.h"
 #include "TreeMeshComponent.h"
@@ -15,7 +14,7 @@
 bool Game::Initialize()
 {
     window(1920, 1080, full);
-    //画像出力系はこのクラスにまとめる
+    //出力系管理クラス
     mRenderer = new Renderer(this);
     //2D Actor
     Actor* a = new Actor(this);
@@ -27,9 +26,9 @@ bool Game::Initialize()
     sc->SetRectMode(CORNER);
     //3D Actor1
     a = new Actor(this);
-    a->SetPosition(VECTOR(0, 0, 0));
-    a->SetRotationX(-1.57f);
-    a->SetRotationZ(1.57f);
+    a->SetPosition(VECTOR(-2, 0, 0));
+    a->SetRotationX(0);
+    a->SetRotationZ(0);
     a->SetScale(1.0f);
     auto bc = new BatchMeshComponent(a);
     bc->SetBatch("elephant");
@@ -41,8 +40,8 @@ bool Game::Initialize()
     tc->SetTree("explorer");
     tc->SetAnim("explorer_neutral");
     tc->SetAnim("explorer_run");
-    enum { eNeutral, eRun };
-    tc->SetAnimId(eNeutral);
+    enum { ENeutral, ERun };
+    tc->SetAnimId(ERun);
     //フレーム間隔時間初期設定
     initDeltaTime();
     return true;

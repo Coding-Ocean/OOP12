@@ -38,6 +38,6 @@ private:
 	bool mUpdatingActors;
 	std::vector<class Actor*> mPendingActors;
 
+	//o—ÍŒn‚Í‚±‚ÌƒNƒ‰ƒX‚ÅŠÇ—
 	class Renderer* mRenderer;
 };
-

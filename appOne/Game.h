@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "VECTOR.h"
 class Game
 {
 public:
@@ -38,8 +37,10 @@ private:
 	bool mUpdatingActors;
 	std::vector<class Actor*> mPendingActors;
 
+	//出力系管理クラス
 	class Renderer* mRenderer;
 
 	//このゲームに固有のロジック
+	void LoadData();
 };
 

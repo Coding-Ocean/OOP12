@@ -14,25 +14,8 @@
 bool Game::Initialize()
 {
     window(1920, 1080, full);
-    //画像出力系はこのクラスにまとめる
     mRenderer = new Renderer(this);
-    //2D Actor
-    Actor* a = new Actor(this);
-    a->SetPosition(VECTOR(0, 0));
-    a->SetRotationZ(-0.7f);
-    a->SetScale(2.0f);
-    auto sc = new SpriteComponent(a);
-    sc->SetImage(loadImage("assets\\enemy01.png"));
-    sc->SetRectMode(CORNER);
-    //3D Actor1
-    a = new Actor(this);
-    a->SetPosition(VECTOR(-1.0f, 0, 0));
-    a->SetScale(3.0f);
-    auto bc = new BatchMeshComponent(a);
-    bc->SetBatch("elephant");
-    //Player
-    new Player(this);
-    //フレーム間隔時間初期設定
+    LoadData();
     initDeltaTime();
     return true;
 }
@@ -53,19 +36,16 @@ void Game::Shutdown()
     {
         delete mActors.back();
     }
-
     while (!mUIStack.empty())
     {
         delete mUIStack.back();
         mUIStack.pop_back();
     }
-
     delete mRenderer;
 }
 
 void Game::AddActor(Actor* actor)
 {
-    //Update中なら、追加をUpdate後に延期する
     if (mUpdatingActors)
     {
         mPendingActors.emplace_back(actor);
@@ -189,3 +169,22 @@ void Game::GenerateOutput()
 }
 
 //このゲームに固有のロジック
+void Game::LoadData()
+{
+    //2D Actor
+    Actor* a = new Actor(this);
+    a->SetPosition(VECTOR(0, 0));
+    a->SetRotationZ(-0.7f);
+    a->SetScale(2.0f);
+    auto sc = new SpriteComponent(a);
+    sc->SetImage(loadImage("assets\\enemy01.png"));
+    sc->SetRectMode(CORNER);
+    //3D Actor1
+    a = new Actor(this);
+    a->SetPosition(VECTOR(-1.0f, 0, 0));
+    a->SetScale(3.0f);
+    auto bc = new BatchMeshComponent(a);
+    bc->SetBatch("elephant");
+    //Player
+    new Player(this);
+}

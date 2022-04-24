@@ -9,11 +9,16 @@ public:
     class TreeMeshComponent* GetMesh() { return mMesh; }
     enum AnimId { EWait, EWalk, EJump };
     float GetForwardSpeed() { return mForwardSpeed; }
-    float GetRotateSpeed() { return mRotateSpeed; }
+    float GetRotateRatio() { return mRotateRatio; }
+    float GetJumpVelocity() { return mJumpVelocity; }
+    float GetGravity() { return mGravity; }
 private:
     class InputComponent* mIn;
     class TreeMeshComponent* mMesh;
     class StateComponent* mState;
+    //í«â¡ëÆê´
     float mForwardSpeed;
-    float mRotateSpeed;
+    float mRotateRatio;
+    float mJumpVelocity;
+    float mGravity;
 };

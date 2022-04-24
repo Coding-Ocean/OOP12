@@ -28,6 +28,6 @@ public:
 	void OnEnter() override;
 	void Update() override;
 private:
-	float mVel;
-	float mAcc;
+	float mJumpVelocity;
+	float mGravity;
 };

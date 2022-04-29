@@ -10,7 +10,7 @@ public:
     void SetTree(const char* name);
     void SetAnim(const char* name);
     void SetAnimId(int id);
-    void SetNextAnimId(int id, float frame);
+    void SetNextAnimId(int id, float morphFrame, float startFrame=0);
     void Update();
     void Draw();
 private:

@@ -50,3 +50,8 @@ void StateComponent::RegisterState(State* state)
 {
 	mStateMap.emplace(state->GetName(), state);
 }
+
+std::string StateComponent::GetName() 
+{ 
+	return mCurrentState->GetName(); 
+}

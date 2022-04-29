@@ -36,9 +36,9 @@ void TreeMeshComponent::SetAnimId(int id)
 	mTree->setAnimation(mAnims[id]);
 }
 
-void TreeMeshComponent::SetNextAnimId(int id, float morphFrame)
+void TreeMeshComponent::SetNextAnimId(int id, float morphFrame, float startFrame)
 {
-	mTree->setNextAnimation(mAnims[id], morphFrame);
+	mTree->setNextAnimation(mAnims[id], morphFrame, startFrame);
 }
 
 void TreeMeshComponent::Update()

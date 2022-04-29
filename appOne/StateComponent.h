@@ -15,8 +15,8 @@ public:
 
 	// 新しいステートをmapに追加
 	void RegisterState(class State* state);
-
 	class Actor* GetActor() { return mOwner; }
+	std::string GetName();
 private:
 	// ＜ステート名、ステート＞map
 	std::unordered_map<std::string, class State*> mStateMap;

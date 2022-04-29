@@ -32,12 +32,12 @@ void move(Player* p)
 //-------------------------------------------------------------------
 void PlayerWait::OnEnter()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 	p->GetMesh()->SetNextAnimId(p->EWait,10);
 }
 void PlayerWait::Update()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 
 	if (p->GetIn()->StartWalk())
 	{
@@ -54,15 +54,15 @@ void PlayerWait::Update()
 //-------------------------------------------------------------------
 void PlayerWalk::OnEnter()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 	p->GetMesh()->SetNextAnimId(p->EWalk,10);
 }
 void PlayerWalk::Update()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 	
 	move(p);
-	
+
 	//ステート変更
 	if (p->GetIn()->StopWalk())
 	{
@@ -79,27 +79,34 @@ void PlayerWalk::Update()
 //-------------------------------------------------------------------
 void PlayerJump::OnEnter()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
-	p->GetMesh()->SetNextAnimId(p->EWait,10);
-	mJumpVelocity = p->GetJumpVelocity();
-	mGravity = p->GetGravity();
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
+	p->GetMesh()->SetNextAnimId(p->EJump, 20, 30);
+
+	p->SetJumpFlag();
+	p->SetJumpVelocity(10.0f);
+
+	//ここでちょっと浮かせないとジャンプフラッグが倒れます
+	VECTOR pos = p->GetPosition();
+	pos.y += p->GetJumpVelocity() * delta;
+	p->SetPosition(pos);
+
+	mSecondJump = 0;
 }
 void PlayerJump::Update()
 {
-	Player* p = dynamic_cast<Player*>(mOwnerCompo->GetActor());
-	
+	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
+
 	move(p);
 
-	//ジャンプ
-	VECTOR pos = p->GetPosition();
-	pos.y += mJumpVelocity * delta;
-	mJumpVelocity += mGravity * delta;
-	//着地
-	float landingY = 0.0f;
-	if (pos.y < landingY)
-	{
-		pos.y = landingY;
-		mOwnerCompo->ChangeState("Wait");
+	//２段ジャンプ
+	if (mSecondJump == 0 && p->GetIn()->Jump()) {
+		mSecondJump = 1;
+		p->SetJumpVelocity(10.0f);
+		p->GetMesh()->SetNextAnimId(p->EJump, 4, 14);
 	}
-	p->SetPosition(pos);
+
+	if (p->GetJumpFlag()==0) {
+		mOwnerCompo->ChangeState("Wait");
+		return;
+	}
 }

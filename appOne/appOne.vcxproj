@@ -155,6 +155,8 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="BatchMeshComponent.cpp" />
+    <ClCompile Include="CELL.cpp" />
+    <ClCompile Include="COLLISION_MAP.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="gmain.cpp" />
@@ -167,6 +169,7 @@
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StateComponent.cpp" />
     <ClCompile Include="TreeMeshComponent.cpp" />
+    <ClCompile Include="TRIANGLE.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIPause.cpp" />
     <ClCompile Include="UIQuit.cpp" />
@@ -181,6 +184,8 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="BatchMeshComponent.h" />
+    <ClInclude Include="CELL.h" />
+    <ClInclude Include="COLLISION_MAP.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputComponent.h" />
@@ -193,6 +198,7 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="StateComponent.h" />
     <ClInclude Include="TreeMeshComponent.h" />
+    <ClInclude Include="TRIANGLE.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIPause.h" />
     <ClInclude Include="UIQuit.h" />

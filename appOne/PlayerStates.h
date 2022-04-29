@@ -28,6 +28,5 @@ public:
 	void OnEnter() override;
 	void Update() override;
 private:
-	float mJumpVelocity;
-	float mGravity;
+	int mSecondJump;
 };

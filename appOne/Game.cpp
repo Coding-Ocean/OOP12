@@ -8,8 +8,9 @@
 
 #include "Actor.h"
 #include "SpriteComponent.h"
-#include "BatchMeshComponent.h"
+#include "TreeMeshComponent.h"
 #include "Player.h"
+#include "COLLISION_MAP.h"
 
 bool Game::Initialize()
 {
@@ -24,6 +25,7 @@ void Game::RunLoop()
 {
     while (notQuit)
     {
+        clear(64, 128, 255);
         ProcessInput();
         UpdateGame();
         GenerateOutput();
@@ -41,6 +43,7 @@ void Game::Shutdown()
         delete mUIStack.back();
         mUIStack.pop_back();
     }
+    delete mCollisionMap;
     delete mRenderer;
 }
 
@@ -171,20 +174,13 @@ void Game::GenerateOutput()
 //‚±‚ÌƒQ[ƒ€‚ÉŒÅ—L‚ÌƒƒWƒbƒN
 void Game::LoadData()
 {
-    //2D Actor
-    Actor* a = new Actor(this);
-    a->SetPosition(VECTOR(0, 0));
-    a->SetRotationZ(-0.7f);
-    a->SetScale(2.0f);
-    auto sc = new SpriteComponent(a);
-    sc->SetImage(loadImage("assets\\enemy01.png"));
-    sc->SetRectMode(CORNER);
-    //3D Actor1
-    a = new Actor(this);
-    a->SetPosition(VECTOR(-1.0f, 0, 0));
-    a->SetScale(3.0f);
-    auto bc = new BatchMeshComponent(a);
-    bc->SetBatch("elephant");
+    //”wŒi
+    auto a = new Actor(this);
+    auto tc = new TreeMeshComponent(a);
+    tc->SetTree("background");
+    
     //Player
     new Player(this);
+
+    mCollisionMap = new COLLISION_MAP(5,"assets\\collisionMap.txt");
 }

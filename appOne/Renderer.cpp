@@ -21,10 +21,10 @@ bool Renderer::Initialize()
 {
     mShader = new LAMBERT;
     setRasterizerCullBack();
-    VECTOR camPos(0, 1.0f, 8.0f), lookat(0, 0.0f, 0), up(0, 1, 0);
+    VECTOR camPos(0, 1.6f, 8.0f), lookat(0, 3.0f, 0), up(0, 1, 0);
     mView.camera(camPos, lookat, up);
-    mProj.pers(3.14f / 4, width / height, 1, 20);
-    mLightPos.set(0, 1, 1);
+    mProj.pers(3.14f / 4, width / height, 1, 30);
+    mLightPos.set(0, 1, 0.1f);
     mAmbient = 0.8f;
     mDiffuse.set(1, 1, 1, 1);
 
@@ -41,7 +41,6 @@ void Renderer::Shutdown()
 
 void Renderer::Draw()
 {
-    clear(60);
 
     mShader->setProjView(mProj * mView);
     mShader->setLightPosition(mLightPos);
@@ -61,6 +60,8 @@ void Renderer::Draw()
     {
         ui->Draw();
     }
+    printSize(80);
+    print(" ‚±‚ê‚t‚Ž‚‰‚”‚™Žg‚Á‚Ä‚È‚¢‚Å‚·");
 }
 
 void Renderer::AddSprite(SpriteComponent* sprite)

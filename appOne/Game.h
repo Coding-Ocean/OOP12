@@ -22,6 +22,7 @@ public:
 	void SetState(GameState gameState) { mGameState = gameState; }
 
 	class Renderer* GetRenderer() { return mRenderer; }
+	class COLLISION_MAP* GetCollisionMap() { return mCollisionMap; }
 private:
 	void ProcessInput();
 	void UpdateGame();
@@ -39,6 +40,8 @@ private:
 
 	//出力系管理クラス
 	class Renderer* mRenderer;
+
+	class COLLISION_MAP* mCollisionMap;
 
 	//このゲームに固有のロジック
 	void LoadData();

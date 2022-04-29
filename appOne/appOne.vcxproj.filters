@@ -92,6 +92,9 @@
     <ClCompile Include="PlayerStates.cpp">
       <Filter>Actor\Player</Filter>
     </ClCompile>
+    <ClCompile Include="CELL.cpp" />
+    <ClCompile Include="COLLISION_MAP.cpp" />
+    <ClCompile Include="TRIANGLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -144,5 +147,8 @@
     <ClInclude Include="PlayerStates.h">
       <Filter>Actor\Player</Filter>
     </ClInclude>
+    <ClInclude Include="CELL.h" />
+    <ClInclude Include="COLLISION_MAP.h" />
+    <ClInclude Include="TRIANGLE.h" />
   </ItemGroup>
 </Project>

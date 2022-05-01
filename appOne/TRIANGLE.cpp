@@ -68,7 +68,8 @@ int TRIANGLE::wallAndCeilingPolygon(
     float radius, float height, float ny 
 ) const{
     int flag = 0;
-    if( N.y <= ny ){
+    if( N.y <= ny ){//壁と天井に属するポリゴンのみ判定対象とする
+        //壁か天井か判定しチェックする点ｐを決定する
         VECTOR p = *pos;
         if( N.y >= 0.0f ){//壁ポリゴン
             p.y += radius;//下半球の中心
@@ -76,18 +77,18 @@ int TRIANGLE::wallAndCeilingPolygon(
         else{//天井ポリゴン
             p.y += height - radius;//上半球の中心
         }
-        //ポリゴンを含む平面までの距離
+        //「点ｐ」と「このポリゴンを含んでいる平面」までの距離
         VECTOR v;
         v = p - P[ 0 ];
         float distance = dot( N, v );
         if( 0.0f <= distance  && distance < radius ){
-            //ポリゴンの法線方向にpが含まれているかチェック
+            //ポリゴンを法線方向に伸ばした三角柱にpが含まれているかチェック
             if( dot( v, C[ 0 ] ) <= 0.0f ){
                 v = p - P[ 1 ];
                 if( dot( v, C[ 1 ] ) <= 0.0f ){
                     v = p - P[ 2 ];
                     if( dot( v, C[ 2 ] ) <= 0.0f ){
-                        //ポリゴンに食い込んでいる-----------------------------------
+                        //ポリゴンに食い込んでいる--------------------------
                         flag = 1;
                         float d = radius - distance;
                         VECTOR n = N * d;
@@ -185,10 +186,10 @@ void TRIANGLE::CylinderSegment(
 {
     VECTOR v( 0, 1, 0 );//円柱中心軸の方向ベクトル
     for( int i = 0; *flag==0 && i < 3; i++ ){
-        //平行ベクトルのとき
         VECTOR _cross = cross( v, V[ i ] );
         float len = _cross.sqMag();
         if( len < 0.000001f ) {
+            //平行ベクトルのとき
             VECTOR v_ = cross( P[ i ] - p, v );
             *sq_distance = v_.sqMag();
             *n = p - P[ i ];

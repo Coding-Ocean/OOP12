@@ -200,16 +200,16 @@ int COLLISION_MAP::capsule_triangles( VECTOR* pos, float* dirY, int* jumpFlag,
             //処理済みでないので当たり判定
             if( j == idx ){
                 cell->capsule_triangles( pos, dirY, jumpFlag, 
-                    //speed, 
                     radius, height, degree, &step );
                 processedCells[ idx++ ] = cell;
             }
         }
     }
-    //posがいるCELLを決定する
+    //posがいるCELLを選択し、着地の処理を行う
     CELL* cell = SelectCell( pos );
     if( cell ){
-        cell->capsule_floor_triangles( pos, dirY, jumpFlag, speed, radius, height, degree, step );
+        cell->capsule_floor_triangles( pos, dirY, jumpFlag, speed, 
+            radius, height, degree, step );
     }
     return 0;
 }

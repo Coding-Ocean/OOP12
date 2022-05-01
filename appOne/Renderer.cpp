@@ -41,7 +41,6 @@ void Renderer::Shutdown()
 
 void Renderer::Draw()
 {
-
     mShader->setProjView(mProj * mView);
     mShader->setLightPosition(mLightPos);
     mShader->setLightAmbient(mAmbient);
@@ -60,8 +59,6 @@ void Renderer::Draw()
     {
         ui->Draw();
     }
-    printSize(80);
-    print(" ‚±‚ê‚t‚Ž‚‰‚”‚™Žg‚Á‚Ä‚È‚¢‚Å‚·");
 }
 
 void Renderer::AddSprite(SpriteComponent* sprite)

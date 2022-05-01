@@ -34,11 +34,25 @@ void PlayerWait::OnEnter()
 {
 	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 	p->GetMesh()->SetNextAnimId(p->EWait,10);
+	mElapsedTime = timeGetTime();
+	mSwitch = 0;
 }
 void PlayerWait::Update()
 {
 	Player* p = static_cast<Player*>(mOwnerCompo->GetActor());
 
+	//一定間隔でアニメーション切り替え
+	if (timeGetTime() - mElapsedTime > 8000)
+	{
+		mElapsedTime = timeGetTime();
+		mSwitch = 1 - mSwitch;
+		if(mSwitch)
+			p->GetMesh()->SetNextAnimId(p->EWait2, 60);
+		else
+			p->GetMesh()->SetNextAnimId(p->EWait, 10);
+	}
+
+	//キー入力でステート切り替え
 	if (p->GetIn()->StartWalk())
 	{
 		mOwnerCompo->ChangeState("Walk");

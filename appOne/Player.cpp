@@ -32,6 +32,7 @@ Player::Player(Game* game)
 	mMesh = new TreeMeshComponent(this);
 	mMesh->SetTree("unitychan");
 	mMesh->SetAnim("unitychanWait00");
+	mMesh->SetAnim("unitychanWait02");
 	mMesh->SetAnim("unitychanRun");
 	mMesh->SetAnim("unitychanJump00");
 

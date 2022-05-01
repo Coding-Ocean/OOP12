@@ -8,7 +8,7 @@ public:
     void UpdateActor() override;
     class InputComponent* GetIn() { return mIn; }
     class TreeMeshComponent* GetMesh() { return mMesh; }
-    enum AnimId { EWait, EWalk, EJump };
+    enum AnimId { EWait, EWait2, EWalk, EJump };
     float GetForwardSpeed() { return mForwardSpeed; }
     float GetRotateRatio() { return mRotateRatio; }
     float GetJumpVelocity() { return mJumpVelocity; }

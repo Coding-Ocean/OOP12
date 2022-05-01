@@ -9,6 +9,9 @@ public:
 	const char* GetName() const override { return "Wait"; }
 	void OnEnter() override;
 	void Update() override;
+private:
+	unsigned mElapsedTime;
+	int mSwitch;
 };
 //-----------------------------------------------------------------------------
 class PlayerWalk : public State

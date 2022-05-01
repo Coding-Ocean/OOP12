@@ -32,6 +32,9 @@
     <Filter Include="Component\State">
       <UniqueIdentifier>{315b052e-9e9e-4e89-91cc-77fd7faad023}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CollisionMap">
+      <UniqueIdentifier>{54e70090-0e95-4594-b228-158a6e45233e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -92,9 +95,15 @@
     <ClCompile Include="PlayerStates.cpp">
       <Filter>Actor\Player</Filter>
     </ClCompile>
-    <ClCompile Include="CELL.cpp" />
-    <ClCompile Include="COLLISION_MAP.cpp" />
-    <ClCompile Include="TRIANGLE.cpp" />
+    <ClCompile Include="CELL.cpp">
+      <Filter>CollisionMap</Filter>
+    </ClCompile>
+    <ClCompile Include="COLLISION_MAP.cpp">
+      <Filter>CollisionMap</Filter>
+    </ClCompile>
+    <ClCompile Include="TRIANGLE.cpp">
+      <Filter>CollisionMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -147,8 +156,14 @@
     <ClInclude Include="PlayerStates.h">
       <Filter>Actor\Player</Filter>
     </ClInclude>
-    <ClInclude Include="CELL.h" />
-    <ClInclude Include="COLLISION_MAP.h" />
-    <ClInclude Include="TRIANGLE.h" />
+    <ClInclude Include="CELL.h">
+      <Filter>CollisionMap</Filter>
+    </ClInclude>
+    <ClInclude Include="COLLISION_MAP.h">
+      <Filter>CollisionMap</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIANGLE.h">
+      <Filter>CollisionMap</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

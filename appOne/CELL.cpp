@@ -117,7 +117,7 @@ void CELL::regist(class TRIANGLE& t )
     }
 }
 
-//「カプセル」と「壁または天井」との当たり判定
+//「カプセル」と「壁または天井ポリゴン」との当たり判定
 int CELL::capsule_triangles( VECTOR* pos, float* dirY, int* jumpFlag, 
     //float speed, 
     float radius, float height, float degree, int* step ) const 
@@ -133,7 +133,7 @@ int CELL::capsule_triangles( VECTOR* pos, float* dirY, int* jumpFlag,
     }
     if( cnt )return cnt;
     //カプセルが壁と天井の線分に食い込んだ分だけposを追い出す
-    for( int i = 0; cnt < 3 && i < NumTriangles; i++ ){
+    for( int i = 0; cnt < 4 && i < NumTriangles; i++ ){
         if( Triangles[ i ]->wallAndCeilingSegment( pos, dirY, *jumpFlag, radius, height, ny ) ){
             cnt++;
             *step = 1;
@@ -141,7 +141,7 @@ int CELL::capsule_triangles( VECTOR* pos, float* dirY, int* jumpFlag,
     }
     return cnt;
 }
-//「カプセル」と「床」との当たり判定
+//「カプセル」と「床ポリゴン」との当たり判定
 int CELL::capsule_floor_triangles( VECTOR* pos, float* dirY, int* jumpFlag, float speed, 
     float radius, float height, float degree, int step ) const 
 {

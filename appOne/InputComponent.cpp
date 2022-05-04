@@ -8,7 +8,7 @@ InputComponent::InputComponent(Actor* owner)
 
 void InputComponent::ProcessInput()
 {
-	mJump = isTrigger(KEY_J);
+	mJump = isTrigger(KEY_SPACE);
 	mLeft = isPress(KEY_A);
 	mRight = isPress(KEY_D);
 	mUp = isPress(KEY_W);

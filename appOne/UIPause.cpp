@@ -33,7 +33,7 @@ void UIPause::ProcessInput()
 {
 	UIScreen::ProcessInput();
 
-	if (isTrigger(KEY_SPACE))
+	if (isTrigger(KEY_P))
 	{
 		CloseMe();
 	}

@@ -16,6 +16,7 @@ public:
     float GetGravity() { return mGravity; }
     int GetJumpFlag() { return mJumpFlag; }
     void SetJumpFlag() { mJumpFlag = 1; }
+    void InitPos();
 private:
     class InputComponent* mIn;
     class TreeMeshComponent* mMesh;

@@ -21,6 +21,7 @@ public:
 
 	class SHADER* GetShader() { return mShader; }
 	class CONTAINER* GetContainer() { return mContainer; }
+	void SetView(class MATRIX& view) { mView = view; }
 private:
 	class Game* mGame;
 	class CONTAINER* mContainer;

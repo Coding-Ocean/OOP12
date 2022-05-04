@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="BatchMeshComponent.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CELL.cpp" />
     <ClCompile Include="COLLISION_MAP.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -162,7 +163,6 @@
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="MeshComponent.cpp" />
-    <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerStates.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -184,13 +184,13 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="BatchMeshComponent.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CELL.h" />
     <ClInclude Include="COLLISION_MAP.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MeshComponent.h" />
-    <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerStates.h" />
     <ClInclude Include="Renderer.h" />

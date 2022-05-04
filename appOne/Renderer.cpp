@@ -21,11 +21,12 @@ bool Renderer::Initialize()
 {
     mShader = new LAMBERT;
     setRasterizerCullBack();
-    VECTOR camPos(0, 1.6f, 8.0f), lookat(0, 3.0f, 0), up(0, 1, 0);
+    VECTOR camPos(0, -5.0f, 3.0f), lookat(0, -5.0f, 0), up(0, 1, 0);
     mView.camera(camPos, lookat, up);
-    mProj.pers(3.14f / 4, width / height, 1, 30);
-    mLightPos.set(0, 1, 0.1f);
-    mAmbient = 0.8f;
+    mProj.pers(3.14f/4, width / height, 0.05f, 170);
+
+    mLightPos.set(0, 0.f, 1);
+    mAmbient = 0.3f;
     mDiffuse.set(1, 1, 1, 1);
 
     mContainer = new CONTAINER("Assets\\Assets.txt");
@@ -47,6 +48,8 @@ void Renderer::Draw()
     mShader->setDiffuse(mDiffuse);
     for (auto mesh : mMeshes)
     {
+        setTextureSamplerWrap();
+
         mesh->Draw();
     }
 

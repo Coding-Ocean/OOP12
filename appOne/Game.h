@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "Actor.h"
 class Game
 {
 public:
@@ -45,5 +46,11 @@ private:
 
 	//このゲームに固有のロジック
 	void LoadData();
+public:
+	class Actor* GetPlayer() { return mPlayer; }
+	float GetCameraRotationY() { return mCamera->GetRotationY(); }
+private:
+	class Actor* mPlayer;
+	class Actor* mCamera;
 };
 

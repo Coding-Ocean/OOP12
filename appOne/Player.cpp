@@ -6,15 +6,16 @@
 #include "Game.h"
 #include "COLLISION_MAP.h"
 #include "window.h"
+#include "graphic.h"
 
 Player::Player(Game* game)
 	:Actor(game)
 {
 	//位置・回転・スケール
-	SetPosition(VECTOR(0,0,0));
+	InitPos();
 
 	//追加属性
-	mForwardSpeed = 0.05f;
+	mForwardSpeed = 0.1f;
 	mRotateRatio = 0.2f;
 	mJumpVelocity = 0;
 	mGravity = -36.0f;
@@ -40,6 +41,14 @@ Player::Player(Game* game)
 	mState->ChangeState("Wait");
 }
 
+void Player::InitPos()
+{
+	//SetPosition(VECTOR(24.26766f,-19.339411f, -354.5625f));
+	SetPosition(VECTOR(22.27f, -13.27f, -412.0f));
+	//SetPosition(VECTOR(110.61f, -41.41f, -998.0f));
+
+}
+
 void Player::UpdateActor()
 {
 	VECTOR pos = GetPosition();
@@ -50,11 +59,15 @@ void Player::UpdateActor()
 		&pos, &mJumpVelocity, &mJumpFlag, mForwardSpeed,
 		radius, height, keisya
 	);
-	//空中にいる時の処理はここだけでやってます
-	if (mJumpFlag) {
-		pos.y += mJumpVelocity * delta;
-		mJumpVelocity += mGravity * delta;
-	}
 	SetPosition(pos);
+
+	printSize(30);
+	print((let)"player x:" + pos.x + " y:" + pos.y + " z:" + pos.z);
+	
+	if (pos.y < -45.0f) {
+		InitPos();
+	}
+
 }
+
 

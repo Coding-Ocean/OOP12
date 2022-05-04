@@ -10,11 +10,13 @@
 #include "SpriteComponent.h"
 #include "TreeMeshComponent.h"
 #include "Player.h"
+#include "Camera.h"
 #include "COLLISION_MAP.h"
 
 bool Game::Initialize()
 {
     window(1920, 1080, full);
+    hideCursor();
     mRenderer = new Renderer(this);
     LoadData();
     initDeltaTime();
@@ -25,7 +27,7 @@ void Game::RunLoop()
 {
     while (notQuit)
     {
-        clear(64, 128, 255);
+        clear(0);
         ProcessInput();
         UpdateGame();
         GenerateOutput();
@@ -88,7 +90,7 @@ void Game::ProcessInput()
         mUpdatingActors = false;
 
         //Pause
-        if (isTrigger(KEY_SPACE))
+        if (isTrigger(KEY_P))
         {
             new UIPause(this);
         }
@@ -177,10 +179,11 @@ void Game::LoadData()
     //”wŒi
     auto a = new Actor(this);
     auto tc = new TreeMeshComponent(a);
-    tc->SetTree("background");
+    tc->SetTree("cave");
     
-    //Player
-    new Player(this);
+    mPlayer = new Player(this);
 
-    mCollisionMap = new COLLISION_MAP(5,"assets\\collisionMap.txt");
+    mCamera = new Camera(this);
+
+    mCollisionMap = new COLLISION_MAP(30,"assets\\collisionMap.txt");
 }
